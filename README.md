@@ -53,6 +53,8 @@ usersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
+
+### Association
 - has_many :messages
 - has_many: groups, through: :members
 
@@ -61,5 +63,7 @@ groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |group_id|integer|null: false, foreign_key: true|
+
+### Association
 - has_many :users, through: :members
 - has_many :messages
