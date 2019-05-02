@@ -19,7 +19,7 @@ messagesテーブル
 |grounp_id|references :group|null: false, foreign_key: true|
 |user_id|references :user|null: false, foreign_key: true|
 ### Association
- - belongs_to: user
+ - belongs_to: users
  - belongs_to: group
 
 usersテーブル
