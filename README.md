@@ -1,43 +1,45 @@
-membersテーブル
+##membersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|group_id|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+|group|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :group
 - belongs_to :user
 
 
-messagesテーブル
+##messagesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |body|text||
 |image|string||
-|grounp_id|references|null: false, foreign_key: true|
-|user_id|references|null: false, foreign_key: true|
+|grounp|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
 ### Association
  - belongs_to: user
  - belongs_to: group
 
-usersテーブル
+
+##usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|name|text|null: false, foreign_key: true|q
-|e-mail|string||
+|name|text|null: false|
+|e-mail|string|null: false|
 ### Association
 - has_many :messages
 - has_many :groups, through: :members
 - has_many :members
 
-groupsテーブル
+
+##groupsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|name|text|null: false, foreign_key: true|
+|name|text|null: false|
 
 ### Association
 - has_many :users, through: :members
