@@ -1,0 +1,67 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title ChatSpaceProto
+    %meta{:content => "authenticity_token", :name => "csrf-param"}/
+    %meta{:content => "u2e6cyZ61PwvzDZjcVaxkt6cNFCptG2kXMAiagOc5KaQaxfFa3d2mtrpH/JDcEY2Jg0Zzk7slb9EcOr3PtBEcw==", :name => "csrf-token"}/
+    %link{"data-turbolinks-track" => "reload", :href => "chat-space.scss", :media => "all", :rel => "stylesheet"}/
+    %link{:rel => "stylesheet", :href =>"/chat-space.scss"}/
+    /font-awesomeを呼び出すために追記。リンク先は下記 https://www.pixelimage.jp/blog/2015/07/font_awesome.html
+    %link{:href => "https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css", :rel => "stylesheet"}/
+    %script{"data-turbolinks-track" => "reload", :src => "/assets/application-8edc245abda810768ef3fe3c5173b344b19ab2bd6c346c842d24949e917a271d.js"}
+
+
+  %body
+    .flash-box
+    .wrapper
+      .chat-side
+        .side-header
+          %p.user-name 3333
+          %ul.user-menu
+            %li.user-menu__edit-user
+              %a{:href => "/groups/new"}
+                %i.fa.fa-edit
+                / ボタンここ！！！！
+            %li.user-menu__new-group
+              %a{:href => "/users/490/edit"}
+                %i.fa.fa-cog
+                / ボタンここ！！！！
+        .groups
+          %a{:href => "/groups/969/messages"}
+            .group
+              %p.group__group-name 3
+              %p.group__latest-message メッセージ
+
+      .chat-main
+        .main-header
+          .current-group{"data-group_id" => "969"}
+            %h2.current-group__name 3
+            %ul.member-list
+              Member：
+              %li.member-list__member 3
+          %a{:href => "/groups/969/edit"}
+            .main-header__edit-btn Edit
+        .messages
+          .message{"data-message_id" => "2318"}
+            .upper-info
+              %p.upper-info__user 3
+              %p.upper-info__date 2019/05/03(Fri) 17:38:07
+            %p.message__text メッセージ
+        .form
+          %form#new_message.new-message{"accept-charset" => "UTF-8", :action => "/groups/969/messages", :enctype => "multipart/form-data", :method => "post"}
+            / Railsへformタグを作成するとデフォルトで付いてくるっぽい。CSRF対策
+            %input{:name => "utf8", :type => "hidden", :value => "✓"}/
+            / Railsへformタグを作成するとデフォルトで付いてくるっぽい。CSRF対策
+            %input{:name => "authenticity_token", :type => "hidden", :value => "YEoJAS77mlLidMxFX7zI+Kti1oAJgPjNKscLBFzW0V82bGkCwW0+sS+LVi+LSlsX7UoGgGkpPrgLk83ljmIYEA=="}/
+            .input-box
+              / テキスト入力
+              %input#message_content.input-box__text{:name => "message[content]", :placeholder => "type a message", :type => "text"}/
+              / 画像選択
+              %label.image-label{:for => "message_image"}
+                / 画像選択ボタン
+                %i.fa.fa-image
+                / 『ファイルを選択』ボタン
+                %input#message_image.image-label__input{:name => "message[image]", :type => "file"}/
+            / Sendボタン
+            %input.new-message__submit-btn{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/
