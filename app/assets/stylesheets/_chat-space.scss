@@ -94,7 +94,7 @@ a {
           color: #333;
           margin-top: 35px;
         }
-            .current-group__name {
+            &__name {
               font-size: 100%;
               /*この場合は20pxになる。もしこの記載が無ければ文字が大きくなりすぎる*/
               font-weight: normal;
@@ -105,7 +105,7 @@ a {
               font-size: 12px;
               color: #999999;
             }
-                .member-list__member {
+                &__member {
                   list-style: none;
                 }
             .main-header__edit-btn {
@@ -129,17 +129,17 @@ a {
               display: flex;
               margin-bottom: 10px;
             }
-                .upper-info__user {
+                &__user {
                   color: #434a54;
                   font-size: 16px;
                   font-weight: bold;
                 }
-                .upper-info__date {
+                &__date {
                   color: #999999;
                   font-size: 12px;
                   margin-left: 10px;
                 }
-            .message__text {
+            &__text {
               color: #434a54;
               font-size: 14px;
               margin-bottom: 10px;
