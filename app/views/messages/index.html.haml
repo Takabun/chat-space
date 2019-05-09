@@ -5,15 +5,15 @@
       %p.user-name 3333
       %ul.user-menu
         %li.user-menu__edit-user
-          %a{:href => "/groups/new"}
+          = link_to do 
             %i.fa.fa-edit
-            / ボタンここ！！！！
+            / ボタンここ groups_new_path(group)！！！！
         %li.user-menu__new-group
-          %a{:href => "/users/490/edit"}
+          = link_to do
             %i.fa.fa-cog
-            / ボタンここ！！！！
+            / ボタンここ "/users/490/edit"！！！！
     .groups
-      %a{:href => "/groups/969/messages"}
+      = link_to do
         .group
           %p.group__group-name 3
           %p.group__latest-message メッセージ
@@ -25,12 +25,12 @@
         %ul.member-list
           Member：
           %li.member-list__member 3
-      %a{:href => "/groups/969/edit"}
+      = link_to do 
         .main-header__edit-btn Edit
     .messages
       .message{"data-message_id" => "2318"}
         .upper-info
-          %p.upper-info__user 
+          %p.upper-info__user
           %p.upper-info__date 2019/05/03(Fri) 17:38:07
         %p.message__text メッセージ
     .form
