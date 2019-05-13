@@ -148,37 +148,46 @@ padding-bottom: 40px;
 
 
 .form {
-  background-color: #DDDDDD;
-  box-sizing: border-box;
-  height: 90px;
-  padding: 20px 50px 20px 40px;
-  &__message {
-    border: none;
-    float: left;
+height: 90px;
+padding: 20px 40px;
+background-color: #ddd;
+.new-message {
+display: flex;
+/*なぜ必要？？？分からん！！！*/
+}
+.input-box {
+position: relative;
+width: 100%;
+}
+  .input-box__text {
     height: 50px;
-    width: calc(100% - 150px);
+    width: 100%;
+    padding: 0 40px 0 10px;
+    color: #434a54;
+    border-style: none;
   }
-  &__mask {
-    background-color: #fff;
-    float: left;
-    height: 50px;
-    padding-right: 10px;
-    &__image {
-      font-size: 20px;
-      line-height: 50px;
-    }
-    .hidden {
-      display: none;
-    }
+  .image-label__input {
+    display: none;
   }
-  &__submit {
-    background-color: #38AEF0;
-    border: none;
-    color: #fff;
-    float: right;
-    font-size: 16px;
-    height: 50px;
-    margin-left: 15px;
-    padding: 0 30px;
+  /*①これを儲けると『ファイルを選択してください』が消える②labelと合わせるとアイコン選択で画像upload出来るようになる*/
+  .image-label {
+    /*要復習*/
+    font-size: 1.3rem;
+    position: absolute;
+    top: 10px;
+    /*『上と右に10ずつの余白がある』という事！ド真ん中に寄せたいのであれば上から左まで全て*/
+    right: 10px;
+    /*CSSのmnargin: autoの中央寄せをしても、アイコンの位置は変わらず(画像選択範囲が変わるだけ)*/
+    cursor: pointer;
+    /*他に、位置指定のやり方として、pxではなく%でのやり方もある*/
   }
+.new-message__submit-btn {
+width: 100px;
+height: 50px;
+padding: 0 30px;
+margin-left: 15px;
+background-color: #38aef0;
+color: $section-color;
+cursor: pointer;
+}
 }
