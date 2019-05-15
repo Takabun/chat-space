@@ -1,7 +1,9 @@
 $(function(){
   function buildHTML(message){
-    if ( message.image ) {
-    var html = 
+    if (message.image ) 
+    message.text ? temptext = message.text : temptext = ""
+    message.image ? tempimage = message.text : tempimage = ""
+    var html =  
     `<div class="message"  data-message-id=${message.id}>
       <div class="upper-info">
         <div class="message__user">
@@ -13,33 +15,13 @@ $(function(){
       </div>
       <div class="lower-message">
         <p class="lower-message__content">
-          ${message.text}
+          ${temptext}
         </p>
       </div>
-      <img src=${message.image}>
+      <img src=${tempimage}>
     </div>`
     return html;
-      } else {
-        var html =
-    `<div class="message"  data-message-id=${message.id}>
-      <div class="upper-info">
-        <div class="message__user">
-          ${message.user_name}
-        </div>
-        <div class="upper-message__date">
-          ${message.date}
-        </div>
-      </div>
-      <div class="lower-message">
-        <p class="lower-message__content">
-          ${message.text}
-        </p>
-      </div>
-    </div>`
-    return html;
-      };
-    }
-
+  }
 
   $('#new_message').on('submit', function(e){
       e.preventDefault();
@@ -71,12 +53,3 @@ $(function(){
         });
     })
 })
-
-
-// $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight});
-//          $('.submit').prop('disabled', false)
-
-// // // // {/* <strong>
-// // // // <a href=/groups/${message.group_id}</a>
-// // // // ：
-// // // // </strong> */}
