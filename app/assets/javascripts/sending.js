@@ -1,6 +1,5 @@
 $(function(){
   function buildHTML(message){
-    if (message.image ) 
     message.text ? temptext = message.text : temptext = ""
     message.image ? tempimage = message.text : tempimage = ""
     var html =  
