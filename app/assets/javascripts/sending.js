@@ -1,7 +1,7 @@
 $(function(){
   function buildHTML(message){
     message.text ? temptext = message.text : temptext = ""
-    message.image ? tempimage = message.text : tempimage = ""
+    message.image ? tempimage = message.image : tempimage = ""
     var html =  
     `<div class="message"  data-message-id=${message.id}>
       <div class="upper-info">
