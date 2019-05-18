@@ -24,11 +24,15 @@
 
   .chat-main
     .main-header
-      .current-group{"data-group_id": "969"}
-        %h2.current-group__name 3
+      .current-group
+        %h2.current-group__name 
+          = @group.name
         %ul.member-list
           Member：
-          %li.member-list__member 3
+          %li.member-list__member
+            - @group.users.each do |user|
+              = user.name
+           
       = link_to do 
         .main-header__edit-btn Edit
     .messages
