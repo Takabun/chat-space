@@ -52,8 +52,6 @@ $(function(){
     })
 
 
-    $(function() {
-      
         var reloadMessages = function() {
           last_message_id = $(".message").last().data("message-id")  //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
           
@@ -66,8 +64,8 @@ $(function(){
           .done(function(data) {
             var insertHTML = '';
              data.forEach(function(messages){
-            insertHTML = buildHTML(messages)
-            $('.messages').append(insertHTML) 
+              insertHTML = buildHTML(messages)
+              $('.messages').append(insertHTML) 
             });
             $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
           })
@@ -78,5 +76,4 @@ $(function(){
         };
 
         setInterval(reloadMessages, 5000);
-      });
 })
