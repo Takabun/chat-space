@@ -35,7 +35,6 @@ $(function(){
         contentType: false
       })
         .done(function(data){
-        //dataの中身を確認するよう console.log(data)
           var html = buildHTML(data);  //buildHTML(3行目-)の中身をvar htmlへ代入
           $('.messages').append(html)  //htmlの内容を、messagesの一番下へ表示！！
           $('form')[0].reset();
@@ -51,4 +50,33 @@ $(function(){
           $('.form__submit').prop('disabled', false);
         });
     })
+
+
+    $(function() {
+      
+        var reloadMessages = function() {
+          last_message_id = $(".message").last().data("message-id")  //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
+          
+          $.ajax({
+            url: location.href, //ルーティングで設定した通りのURLを指定..文字列で相対パスとは？
+            type: 'get',
+            dataType: 'json',
+            data: {id: last_message_id},  //dataオプションでリクエストに値を含める
+          })
+          .done(function(data) {
+            var insertHTML = '';
+             data.forEach(function(messages){
+            insertHTML = buildHTML(messages)
+            $('.messages').append(insertHTML) 
+            });
+            $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+          })
+
+          .fail(function() {
+            console.log('error');
+          });
+        };
+
+        setInterval(reloadMessages, 5000);
+      });
 })
