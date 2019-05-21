@@ -54,7 +54,7 @@ server '13.230.114.201',
 #   ssh_options: {
 #     user: "user_name", # overrides user setting above
 #     keys: %w(/home/user_name/.ssh/id_rsa),
-#     forward_agent: false,
+#     forward_agent: true,
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
