@@ -69,6 +69,8 @@ gem 'mini_magick'
 gem "font-awesome-rails"
 gem 'jquery-rails'
 gem 'pry-rails'
+gem 'carrierwave'
+gem 'fog-aws'
 
 
 group :production do
