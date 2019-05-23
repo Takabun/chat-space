@@ -5,17 +5,18 @@ class MessagesController < ApplicationController
     @message = Message.new
     @messages = @group.messages.includes(:user)
     respond_to do |format| 
-      format.html
-      format.json {@new_messages = @messages.where('id > ?', params[:id])}
+    format.html
+    format.json {@new_messages = @messages.where('id > ?', params[:id])}
     end
   end
 
   def create
+    # {"utf8"=>"✓", "authenticity_token"=>"r83DTryOGhyx5gzxPqd0CQqqgb0Y+eGaYTFGwS0ii/p5u/EHF4nVOVDKcETYq8+I8JdkoOwMTTFjm2JnByPNIQ==", "message"=><ActionController::Parameters {"content"=>""} permitted: false>, "controller"=>"messages", "action"=>"create", "group_id"=>"12"} permitted: false>
     @message = @group.messages.new(message_params)
-    if @message.save
+    if @message.save    
       respond_to do |format|
-        format.html { redirect_to group_messages_path(@group), notice: 'メッセージが送信されました' }
-        format.json
+      # format.html { redirect_to group_messages_path(@group), notice: 'メッセージが送信されました' }
+      format.json
       end
     else
       @messages = @group.messages.includes(:user)

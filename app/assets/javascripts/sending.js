@@ -25,7 +25,7 @@ $(function(){
   $('#new_message').on('submit', function(e){
       e.preventDefault();
       var formData = new FormData(this);
-      var url = $(this).attr('action')
+      var url = $(this).attr('action');
       $.ajax({
         url: url,
         type: "POST",
@@ -34,11 +34,15 @@ $(function(){
         processData: false,
         contentType: false
       })
+
         .done(function(data){
+          if (data.length !== 0) { 
           var html = buildHTML(data);  //buildHTML(3行目-)の中身をvar htmlへ代入
           $('.messages').append(html)  //htmlの内容を、messagesの一番下へ表示！！
           $('form')[0].reset();
           $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+        }
+        else {alert('メッセージを入力してください')}  //もともとはifの分岐はなかった
         })
     
 
@@ -46,9 +50,6 @@ $(function(){
           alert('error');
         })
 
-        .always(function() {
-          $('.form__submit').prop('disabled', false);
-        });
     })
 
 
